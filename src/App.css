@@ -1,42 +1,242 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+
+
+
+.contianer{
+  overflow: scroll;
+  height: 100vh;
+  scroll-snap-type: y proximity;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+
+.card{
+  height: 100vh;
+  scroll-snap-align: start;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.canvas-container{
+  height: 100vh;
+  width: 100vw;
+}
+
+
+
+
+/*----------------Light and Dark Mode-------------------------  */
+#light .contianer{
+  background-color: rgb(206, 206, 206);
+}
+
+#light .navbar{
+  background-color: rgb(180, 174, 174, 0);
+  color: white;
+}
+#light .problem-description{
+  color: rgb(0, 0, 0);
+}
+
+#light .wave-letter{
+  color: rgb(0, 0, 0);
+}
+
+#light .canva{
+  background-color: rgba(0, 0, 0, 0.3);
+}
+#dark .wave-letter{
+  color: rgb(255, 255, 255);
+}
+
+#dark h2{
+  color: rgb(255, 255, 255);
+}
+
+#dark .navbar{
+  background-color: rgb(255, 255, 255, 0);
+}
+
+
+#dark h1{
+  color: #ccc;
+  font-size: 1.2rem;
+}
+
+#dark .contianer{
+  background-color: black;
+}
+
+body{
+  display:block !important;
+  background-color: black;
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/*-------------------------------Navbar-------------------------------  */
+.navbar{
+  background-color: rgba(192,192, 200, 00);
+  width: 99.5%;
+  height: 100px;
+  position: fixed;
+  z-index: 2;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8pt;
+}
+
+
+
+
+
+.switch-container{
+  float: right;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  justify-content: space-evenly;
+  width: 35vw;
+  max-width: 450px;
+}
+
+.name{
+  float: left;
+  display: flex;
+  align-items: center;
   text-align: center;
+  justify-content: center;
+  height: 100px;
+  width: 10vw;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.gradient-text-reveal {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px;
+  background: linear-gradient(to right, #ffcc00 0%, #ffcc00 0%, #ffffff 100%);
+  background-clip: text;
+  color: transparent;
+  transition: background-position 0.3s ease;
+  display: inline-block;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.gradient-text-reveal:hover {
+  background-position: 100% 0;
+}
+
+
+/* //w-full h-auto absolute inset-0 z-[-1] */
+
+.stars{
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  background-color: black;
+  position: 'relative'
+}
+
+/* WaveText.css */
+.wave-text {
+  white-space: pre;
+  font-size: 1rem;
+  font-weight: bold;
+  display: inline-block;
+  cursor: pointer;
+  position: relative; /* Add relative positioning */
+  z-index: 1; /* Ensure letters appear above glowing layer */
+}
+
+.wave-letter {
+  display: inline-block;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  text-decoration: none;
+}
+
+/* Glowing effect with expanding text shadows */
+@keyframes glowing {
+  0%, 100%  {
+    color: white;
+    white-space: pre; /* Preserve spaces */
+    text-shadow: 0 0 15px white, 0 0 30px white, 0 0 60px white, 0 0 80px white, 0 0 90px white, 0 0 100px white, 0 0 150px white;
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    color: silver;
+    text-shadow: none;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+
+/* Make text silver and start highly intense glowing effect every 10 seconds */
+@keyframes glowingSilver {
+  0%, 100% {
+    color: silver;
+    
+  }
+  50% {
+    color: white;
   }
 }
 
-.card {
-  padding: 2em;
+
+
+
+.text-overlay {
+  position: absolute;
+  top: 50%; /* Adjust as needed */
+  left: 50%; /* Adjust as needed */
+  transform: translate(-50%, -50%);
+  z-index: 2; /* Adjust if necessary to ensure the overlay is on top of the canvas */
+  font-size: 24px;
+  color: white;
+  pointer-events: none; /* This allows clicks to go through the overlay */
+  transition: transform 0.2s ease-out; /* Add a smooth transition effect */
 }
 
-.read-the-docs {
-  color: #888;
+/*----------------------------------Reveal Effects---------------------------- */
+
+.fadeContainer{
+  width: "800px";
+  align-items: "flex-end";
+  display: "flex";
+  flex-direction: "column";
+}
+.videoHolder{
+  height: 50vh;
+  width: 50vw;
+}
+.problem-title{
+  color: #ccc;
+  padding-bottom: 100px;
+  padding-left: 50px;
+}
+
+.problem-description {
+  padding-left: 30px;
+  color: #ccc;
+  padding-bottom: 150px;
+  font-family: 'Courier New', Courier, monospace;
+  width: 400px;
+}
+
+#skills ul{
+  width: 170px;
+  
+}
+
+#skills li{
+	list-style: none;
+	padding: 5px; /*separates each slightly*/
+	border: 2px solid white; /*makes square borders */
+	border-radius: 50%; /*turns squares into circles */
+	background: rgba(0, 0, 0, 0.6); /*slight transparent */
+	color: lightskyblue;
+}
+
+section#skills{
+  display: flex;
+	justify-content: center;
+	text-align: center;
+  height: 500px
 }
