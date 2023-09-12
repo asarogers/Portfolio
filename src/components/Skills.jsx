@@ -30,14 +30,19 @@ export default function Skills({ theme }) {
                 <li>Mongo</li>
                 <li>SQLite</li>
                 <li>Postgres</li>
-                <li>Oracle Database</li>
+                <li>Oracle</li>
+                <li>Azure</li>
+                <li>AWS</li>
+                <li>GCP</li>
             </ul>
             <ul>
                 <h1><WaveText text={"Software"} theme={theme} /></h1>
                 <li>Android Studio</li>
-                <li>Visual Studio & VS Code</li>
+                <li>RESTful API</li>
                 <li>NetBeans</li>
                 <li>Access & Excel</li>
+                <li>Angular</li>
+                <li>Figma</li>
                 <li>React</li>
             </ul>
         </section>
