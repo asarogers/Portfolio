@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import { useLoader, useFrame } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-
 const InfinitySign = ({ modelPath, scale }) => {
   const ref = useRef(); //reference to the object on the screen
   const gltf = useLoader(GLTFLoader, modelPath); //loads t

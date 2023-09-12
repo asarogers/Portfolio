@@ -79,7 +79,7 @@ function App() {
             </div>
           </Roll >
         </section>
-        {/* < Skills theme={theme} /> */}
+        < Skills theme={theme} />
       </div>
     </body>
   )
